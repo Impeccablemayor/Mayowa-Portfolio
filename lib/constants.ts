@@ -1,293 +1,213 @@
 /**
- * Portfolio Constants
- * Central hub for all static content, configuration, and metadata
+ * Portfolio Data Hub
+ * Configured for Senior / Staff Software Engineer (Fintech & Full-Stack)
  */
 
-// Personal Information
 export const PERSONAL_INFO = {
-  name: 'Your Name',
-  title: 'Full-Stack Engineer',
-  description: 'Building scalable software that solves real problems',
-  bio: 'I design and engineer modern software experiences using .NET, Java, Cloud Technologies, AI integrations, and modern frontend frameworks.',
-  email: 'your.email@example.com',
-  phone: '+1 (234) 567-8900',
-  location: 'San Francisco, CA',
-  availability: true,
+  name: 'Mayowa',
+  shortName: 'Mayor',
+  title: 'Software Engineer',
+  roleSubtitle: 'Specializing in ASP.NET Core, C#, React, PostgreSQL, AWS & Distributed Systems',
+  bio: 'Software Engineer with extensive experience architecting high-throughput fintech infrastructure, payment pipelines, and scalable enterprise platforms at GlobalPay NG. Focused on API performance, data integrity, security, and resilient cloud software.',
+  email: 'mayor.dev@example.com',
+  location: 'Lagos, Nigeria (Available for Remote Global Roles)',
+  availability: 'Open to Senior / Full-Stack / Backend Engineering Roles',
   resumeUrl: '/resume.pdf',
-  calendly: 'https://calendly.com/yourhandle',
+  github: 'https://github.com/impeccablemayor',
+  linkedin: 'https://linkedin.com/in/mayowa-engineer',
+  calendly: 'https://calendly.com/mayor-dev',
 }
 
-// Social Links
-export const SOCIAL_LINKS = {
-  github: 'https://github.com/yourhandle',
-  linkedin: 'https://linkedin.com/in/yourprofile',
-  twitter: 'https://twitter.com/yourhandle',
-  email: 'mailto:your.email@example.com',
-  calendly: 'https://calendly.com/yourhandle',
-}
+export const STATS = [
+  { label: 'Production Uptime SLA', value: '99.99%' },
+  { label: 'Transactions Processed', value: '15M+' },
+  { label: 'Average API Response', value: '<45ms' },
+  { label: 'Years Shipping Software', value: '4+ Yrs' },
+]
 
-// Navigation
 export const NAV_ITEMS = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Work', href: '#work' },
+  { label: 'Overview', href: '#hero' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Architecture', href: '#architecture' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Blog', href: '#blog' },
   { label: 'Contact', href: '#contact' },
 ]
 
-// Skills by Category
-export const SKILLS_CATEGORIES = {
-  backend: {
-    name: 'Backend',
-    skills: [
-      { name: '.NET Core', level: 90 },
-      { name: 'ASP.NET', level: 90 },
-      { name: 'Entity Framework', level: 85 },
-      { name: 'Java', level: 85 },
-      { name: 'Spring Boot', level: 80 },
-      { name: 'REST APIs', level: 95 },
-      { name: 'GraphQL', level: 75 },
-      { name: 'Microservices', level: 85 },
-    ],
-  },
-  frontend: {
-    name: 'Frontend',
-    skills: [
-      { name: 'React', level: 90 },
-      { name: 'TypeScript', level: 90 },
-      { name: 'Tailwind CSS', level: 95 },
-      { name: 'Next.js', level: 85 },
-      { name: 'Framer Motion', level: 80 },
-      { name: 'Vue.js', level: 70 },
-    ],
-  },
-  cloud: {
-    name: 'Cloud & Infrastructure',
-    skills: [
-      { name: 'AWS', level: 85 },
-      { name: 'Docker', level: 90 },
-      { name: 'Kubernetes', level: 75 },
-      { name: 'GitHub Actions', level: 85 },
-      { name: 'CI/CD', level: 90 },
-      { name: 'Terraform', level: 70 },
-    ],
-  },
-  databases: {
-    name: 'Databases',
-    skills: [
-      { name: 'PostgreSQL', level: 90 },
-      { name: 'SQL Server', level: 85 },
-      { name: 'MongoDB', level: 80 },
-      { name: 'Redis', level: 80 },
-    ],
-  },
-  tools: {
-    name: 'Tools & Utilities',
-    skills: [
-      { name: 'Git', level: 95 },
-      { name: 'VS Code', level: 95 },
-      { name: 'Postman', level: 90 },
-      { name: 'Figma', level: 70 },
-      { name: 'Swagger', level: 85 },
-    ],
-  },
-}
-
-// Featured Projects
-export const FEATURED_PROJECTS = [
+export const TECHNICAL_SKILLS = [
   {
-    id: 1,
-    title: 'E-Commerce Platform',
-    slug: 'ecommerce-platform',
-    description: 'Full-stack e-commerce solution with real-time inventory management',
-    image: '/projects/ecommerce.jpg',
-    tags: ['.NET', 'React', 'PostgreSQL', 'AWS'],
-    problem: 'Legacy system unable to handle peak traffic during sales events',
-    solution: 'Redesigned with microservices architecture and async processing',
-    impact: '99.99% uptime, 3x throughput increase',
+    category: 'Backend & APIs',
+    skills: ['ASP.NET Core', 'C#', 'RESTful APIs', 'Microservices', 'JWT Auth / OAuth2', 'EF Core', 'Dapper'],
   },
   {
-    id: 2,
-    title: 'AI Analytics Dashboard',
-    slug: 'ai-analytics-dashboard',
-    description: 'Real-time analytics with machine learning predictions',
-    image: '/projects/analytics.jpg',
-    tags: ['Node.js', 'React', 'TensorFlow', 'AWS'],
-    problem: 'Manual reporting process taking 40+ hours per week',
-    solution: 'Automated dashboard with ML-powered forecasting',
-    impact: '80% time savings, real-time insights',
+    category: 'Frontend & Full-Stack',
+    skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'State Management'],
   },
   {
-    id: 3,
-    title: 'Multi-Tenant SaaS',
-    slug: 'multitenant-saas',
-    description: 'Scalable multi-tenant architecture supporting 500+ customers',
-    image: '/projects/saas.jpg',
-    tags: ['Java', 'Spring Boot', 'PostgreSQL', 'Kubernetes'],
-    problem: 'Needed to support rapid customer acquisition',
-    solution: 'Implemented multi-tenant database design with horizontal scaling',
-    impact: 'Scaled to 500+ customers, reduced costs by 40%',
+    category: 'Databases & Caching',
+    skills: ['PostgreSQL', 'SQL Server', 'Redis', 'Database Indexing', 'Query Optimization'],
+  },
+  {
+    category: 'Cloud, DevOps & Infra',
+    skills: ['AWS (ECS, S3, RDS)', 'Docker', 'CI/CD Pipelines', 'GitHub Actions', 'Linux / NGINX'],
   },
 ]
 
-// Experience
 export const EXPERIENCE = [
   {
-    id: 1,
-    title: 'Senior Backend Engineer',
-    company: 'Tech Company',
-    duration: 'Jan 2022 - Present',
-    description:
-      'Leading backend architecture and development for microservices platform',
-    achievements: [
-      'Architected and deployed microservices handling 10M+ daily requests',
-      'Reduced API response time by 70% through optimization',
-      'Mentored 5 junior engineers and established coding standards',
+    id: 'globalpay-ng',
+    role: 'Software Engineer (Fintech & Payments)',
+    company: 'GlobalPay NG',
+    duration: '2023 — Present',
+    location: 'Lagos, Nigeria',
+    description: 'Leading backend payment processing architectures and core microservices integration for enterprise financial systems.',
+    highlights: [
+      'Engineered high-concurrency payment webhook consumers in ASP.NET Core, processing over 15M+ transaction events with 99.99% uptime SLA.',
+      'Optimized PostgreSQL query execution plans and indexing strategies, reducing API response latencies by 62% across core endpoints.',
+      'Implemented robust JWT authentication, RBAC authorization, and HMAC payload validation to ensure PCI-DSS security compliance.',
+      'Containerized backend services with Docker and deployed scalable infrastructure on AWS ECS with auto-scaling triggers.',
     ],
-    technologies: ['.NET Core', 'AWS', 'Kubernetes', 'PostgreSQL'],
+    techStack: ['C#', 'ASP.NET Core', 'PostgreSQL', 'AWS', 'Docker', 'Redis', 'JWT'],
   },
   {
-    id: 2,
-    title: 'Full Stack Engineer',
-    company: 'StartUp Inc',
-    duration: 'Jul 2020 - Dec 2021',
-    description: 'Developed full-stack features for SaaS platform from concept to production',
-    achievements: [
-      'Built real-time collaboration features with WebSockets',
-      'Implemented authentication system serving 100K+ users',
-      'Improved application performance by 50% through code optimization',
+    id: 'ibop-enterprise',
+    role: 'Full-Stack Software Engineer',
+    company: 'Enterprise Internal Platforms (IBOP)',
+    duration: '2022 — 2023',
+    location: 'Remote',
+    description: 'Architected and built an internal business operations platform streamlining multi-department workflows and reporting.',
+    highlights: [
+      'Designed a multi-tenant React/TypeScript frontend integrated with an ASP.NET Core Web API backend.',
+      'Reduced manual reporting operational time by 75% through automated batch jobs and real-time audit logging.',
+      'Integrated complex role-based access control (RBAC) handling granular permissions across 500+ internal users.',
     ],
-    technologies: ['React', 'Node.js', 'MongoDB', 'Docker'],
+    techStack: ['ASP.NET Core', 'React', 'TypeScript', 'PostgreSQL', 'Tailwind CSS', 'Docker'],
   },
   {
-    id: 3,
-    title: 'Software Developer',
-    company: 'Enterprise Corp',
-    duration: 'Jun 2018 - Jun 2020',
-    description: 'Developed and maintained enterprise applications for large organization',
-    achievements: [
-      'Maintained 99.9% system uptime across production systems',
-      'Developed CLI tools improving developer workflow by 25%',
-      'Led migration from monolith to microservices architecture',
+    id: 'peershelf-platform',
+    role: 'Full-Stack Engineer',
+    company: 'PeerShelf Distributed Systems',
+    duration: '2021 — 2022',
+    location: 'Remote',
+    description: 'Developed a peer-to-peer resource sharing platform with automated digital cataloging and real-time messaging.',
+    highlights: [
+      'Built reactive UI components with React and TypeScript backed by structured RESTful APIs.',
+      'Implemented Redis caching layer that decreased database read traffic by 40% during peak user activity.',
+      'Designed CI/CD pipelines via GitHub Actions for zero-downtime containerized deployments.',
     ],
-    technologies: ['C#', 'SQL Server', 'ASP.NET', 'Azure'],
+    techStack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Redis', 'Docker', 'AWS'],
   },
 ]
 
-// Education
-export const EDUCATION = [
+export interface ProjectCaseStudy {
+  id: string
+  title: string
+  subtitle: string
+  company: string
+  summary: string
+  problem: string
+  solution: string
+  architecture: string
+  impactMetrics: { label: string; value: string }[]
+  tags: string[]
+  githubUrl?: string
+  liveUrl?: string
+  keyFeatures: string[]
+}
+
+export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
   {
-    id: 1,
-    degree: 'Bachelor of Science in Computer Science',
-    school: 'University Name',
-    year: '2018',
-    gpa: '3.8/4.0',
-    highlights: ['Dean&apos;s List', 'Scholarship Recipient'],
+    id: 'globalpay-gateway',
+    title: 'GlobalPay NG Payment Gateway Engine',
+    subtitle: 'High-Concurrency Fintech Microservice & Settlement Pipeline',
+    company: 'GlobalPay NG',
+    summary: 'A resilient payment gateway microservice handling payment processing, webhook distribution, and automated reconciliation.',
+    problem: 'Legacy transaction pipeline experienced database bottleneck locks during high-traffic peak hours, causing webhook delays over 8 seconds.',
+    solution: 'Re-architected the payment processor using ASP.NET Core background worker services, Redis pub/sub queues, and optimized PostgreSQL row-level locks.',
+    architecture: 'ASP.NET Core Web API -> Redis Channel Queue -> Async Worker Pool -> PostgreSQL (Partitioned Tables) -> AWS ECS',
+    impactMetrics: [
+      { label: 'Latency Reduction', value: '-65%' },
+      { label: 'Transactions/Sec', value: '2,500+' },
+      { label: 'Uptime SLA', value: '99.99%' },
+    ],
+    tags: ['ASP.NET Core', 'C#', 'PostgreSQL', 'Redis', 'AWS ECS', 'Docker', 'Fintech'],
+    githubUrl: 'https://github.com/impeccablemayor',
+    liveUrl: 'https://globalpay.ng',
+    keyFeatures: [
+      'Idempotent payment webhook processing using Redis locks',
+      'HMAC SHA256 signature verification for zero-trust security',
+      'Automated daily reconciliation engine producing structured audit logs',
+      'Prometheus and Grafana dashboard telemetry',
+    ],
+  },
+  {
+    id: 'ibop-platform',
+    title: 'IBOP Enterprise Operations Engine',
+    subtitle: 'Internal Business Operations & Workflow Automation System',
+    company: 'Enterprise Internal System',
+    summary: 'Centralized enterprise platform managing organizational workflows, staff authorization, data pipelines, and analytics.',
+    problem: 'Siloed data across multiple legacy systems created data inconsistencies and required 40+ hours per week of manual data entries.',
+    solution: 'Unified operational tools into a single full-stack web application with strict RBAC, automated data pipelines, and audit trails.',
+    architecture: 'React + TypeScript SPA -> ASP.NET Core REST API -> Entity Framework Core -> PostgreSQL -> Docker Container',
+    impactMetrics: [
+      { label: 'Manual Effort Saved', value: '75%' },
+      { label: 'Internal Users', value: '500+' },
+      { label: 'Data Processing Speed', value: '4x' },
+    ],
+    tags: ['React', 'TypeScript', 'ASP.NET Core', 'PostgreSQL', 'Tailwind CSS', 'Docker'],
+    githubUrl: 'https://github.com/impeccablemayor',
+    keyFeatures: [
+      'Granular Role-Based Access Control (RBAC) with customizable permissions',
+      'Real-time data visualization dashboards powered by SQL aggregation views',
+      'Automated PDF export generator for executive compliance reporting',
+      'Responsive dark/light glass interface optimized for operational efficiency',
+    ],
+  },
+  {
+    id: 'peershelf-app',
+    title: 'PeerShelf Distributed Sharing Platform',
+    subtitle: 'Peer-to-Peer Cataloging & Asset Distribution Web App',
+    company: 'PeerShelf',
+    summary: 'A web platform enabling digital asset discovery, peer-to-peer resource sharing, and real-time community engagement.',
+    problem: 'Search queries across large inventory datasets suffered from high latency without proper indexing and caching.',
+    solution: 'Implemented full-text search indexing on PostgreSQL and cached frequently requested asset metadata in Redis.',
+    architecture: 'Next.js Frontend -> Node/TypeScript API -> PostgreSQL + GIN Indexes -> Redis Cache -> AWS S3',
+    impactMetrics: [
+      { label: 'DB Load Reduction', value: '-40%' },
+      { label: 'Search Latency', value: '<20ms' },
+      { label: 'Active Catalog Items', value: '50K+' },
+    ],
+    tags: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Redis', 'AWS S3', 'Docker'],
+    githubUrl: 'https://github.com/impeccablemayor',
+    liveUrl: 'https://github.com/impeccablemayor',
+    keyFeatures: [
+      'PostgreSQL full-text search with fast GIN index lookups',
+      'S3 presigned URLs for secure asset uploads and distribution',
+      'Optimized image loading pipeline reducing initial payload by 60%',
+      'Fully responsive UI adhering to modern Web Content Accessibility Guidelines',
+    ],
   },
 ]
 
-// Certifications
-export const CERTIFICATIONS = [
+export const ENGINEERING_PHILOSOPHY = [
   {
-    id: 1,
-    title: 'AWS Certified Solutions Architect',
-    issuer: 'Amazon Web Services',
-    date: '2023',
-    credentialUrl: '#',
+    title: 'Idempotency & Fault Tolerance',
+    description: 'In fintech and distributed systems, network partitions happen. Every payment webhook and API endpoint is built idempotent to guarantee zero duplicate charges and absolute system state consistency.',
+    icon: 'ShieldCheck',
   },
   {
-    id: 2,
-    title: 'Kubernetes Application Developer',
-    issuer: 'Linux Foundation',
-    date: '2022',
-    credentialUrl: '#',
-  },
-]
-
-// Blog Categories
-export const BLOG_CATEGORIES = ['Engineering', 'Cloud', 'Career', 'AI', 'Tutorials']
-
-// Services
-export const SERVICES = [
-  {
-    title: 'Backend Development',
-    description: 'Building scalable, maintainable backend systems',
-    icon: 'Code',
+    title: 'Database Performance & Query Optimization',
+    description: 'Database bottlenecks kill scale. I analyze execution plans, build targeted composite indexes, leverage connection pooling, and separate read/write patterns to achieve sub-50ms query times.',
+    icon: 'Database',
   },
   {
-    title: 'Full Stack Development',
-    description: 'End-to-end application development',
+    title: 'Clean Architecture & Type Safety',
+    description: 'Clear domain boundaries prevent technical debt. I separate core business logic from framework infrastructure using C# Clean Architecture / CQRS patterns and strict TypeScript contracts on the frontend.',
     icon: 'Layers',
   },
   {
-    title: 'Cloud Architecture',
-    description: 'Designing cloud-native solutions',
-    icon: 'Cloud',
-  },
-  {
-    title: 'Performance Optimization',
-    description: 'Improving application speed and efficiency',
-    icon: 'Zap',
-  },
-  {
-    title: 'AI Integration',
-    description: 'Integrating AI/ML into applications',
-    icon: 'Brain',
-  },
-  {
-    title: 'Technical Consulting',
-    description: 'Providing expert guidance on technical decisions',
-    icon: 'Briefcase',
+    title: 'Zero-Trust Security & RBAC',
+    description: 'Security is fundamental. I implement strict JWT token validation, refresh token rotation, payload HMAC validation, parameter sanitization, and principle of least privilege access control.',
+    icon: 'Lock',
   },
 ]
-
-// Engineering Metrics
-export const ENGINEERING_METRICS = {
-  yearsOfExperience: 5,
-  projectsCompleted: 25,
-  apisBuilt: 40,
-  cloudDeployments: 50,
-  technologiesMastered: 20,
-  openSourceContributions: 15,
-  articlesPublished: 8,
-  uptime: 99.99,
-}
-
-// Testimonials
-export const TESTIMONIALS = [
-  {
-    name: 'John Doe',
-    title: 'CTO',
-    company: 'Tech Company',
-    text: 'Exceptional engineer with deep expertise in building scalable systems.',
-    image: '/testimonials/1.jpg',
-    rating: 5,
-  },
-  {
-    name: 'Jane Smith',
-    title: 'Product Manager',
-    company: 'StartUp Inc',
-    text: 'Great collaborator who understands both technical and business needs.',
-    image: '/testimonials/2.jpg',
-    rating: 5,
-  },
-]
-
-// Animation Timing
-export const ANIMATION_TIMING = {
-  fast: 0.15,
-  normal: 0.3,
-  slow: 0.5,
-  verySlow: 0.8,
-}
-
-// Breakpoints
-export const BREAKPOINTS = {
-  xs: '320px',
-  sm: '640px',
-  md: '768px',
-  lg: '1024px',
-  xl: '1280px',
-  '2xl': '1536px',
-}

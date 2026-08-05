@@ -14,50 +14,30 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Full-Stack Engineer | Building Scalable Software',
-  description: 'Senior engineer specializing in backend systems, cloud architecture, and modern web technologies. View my work and get in touch.',
-  generator: 'v0.app',
+  title: 'Mayowa | Software Engineer (ASP.NET Core, C#, React, PostgreSQL, AWS)',
+  description: 'Software Engineer with experience in fintech payment systems (GlobalPay NG), microservices, ASP.NET Core, C#, React, TypeScript, and AWS cloud infrastructure.',
   keywords: [
-    'Full Stack Engineer',
-    'Backend Developer',
-    'Cloud Architecture',
     'Software Engineer',
-    '.NET',
-    'Java',
+    'Full Stack Engineer',
+    'Backend Engineer',
+    'ASP.NET Core',
+    'C#',
     'React',
+    'TypeScript',
+    'PostgreSQL',
     'AWS',
+    'Docker',
+    'GlobalPay NG',
+    'Fintech Engineer',
   ],
-  authors: [{ name: 'Engineer' }],
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
+  authors: [{ name: 'Mayowa' }],
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://yourportfolio.com',
-    siteName: 'Your Portfolio',
-    title: 'Full-Stack Engineer | Building Scalable Software',
-    description: 'Senior engineer specializing in backend systems, cloud architecture, and modern web technologies.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    creator: '@yourhandle',
-    title: 'Full-Stack Engineer | Building Scalable Software',
-    description: 'Senior engineer specializing in backend systems, cloud architecture, and modern web technologies.',
+    url: 'https://impeccablemayor.com',
+    siteName: 'Mayowa Portfolio',
+    title: 'Mayowa | Software Engineer (Fintech & Full-Stack)',
+    description: 'Specializing in ASP.NET Core, C#, React, PostgreSQL, AWS, and resilient API microservices.',
   },
 }
 
@@ -65,12 +45,10 @@ export const viewport: Viewport = {
   colorScheme: 'dark light',
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#FAFAFA' },
-    { media: '(prefers-color-scheme: dark)', color: '#050816' },
+    { media: '(prefers-color-scheme: dark)', color: '#09090b' },
   ],
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 5,
-  userScalable: true,
 }
 
 export default function RootLayout({
@@ -86,9 +64,8 @@ export default function RootLayout({
     >
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className="bg-background text-foreground font-sans">
+      <body className="bg-[#09090b] text-neutral-100 font-sans antialiased">
         <div className="relative min-h-screen">
           {children}
         </div>

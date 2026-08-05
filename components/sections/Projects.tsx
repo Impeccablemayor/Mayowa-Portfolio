@@ -1,158 +1,98 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Badge } from '@/components/ui/Badge'
-import { Button } from '@/components/ui/Button'
-import { STAGGER_CONTAINER, STAGGER_ITEM } from '@/lib/animations'
-
-const PROJECTS = [
-  {
-    title: 'High-Performance Trading Dashboard',
-    description: 'Real-time financial data platform handling 100K+ concurrent users with sub-50ms latency',
-    image: '/projects/trading-dashboard.png',
-    role: 'Lead Backend Engineer',
-    technologies: ['.NET Core', 'WebSocket', 'PostgreSQL', 'Redis', 'AWS'],
-    achievements: [
-      '70% reduction in query time through optimization',
-      '99.99% uptime SLA maintained',
-      'Real-time data processing for 50M+ events/day',
-    ],
-    problem: 'Legacy system couldn\'t handle peak load, causing data delivery delays and poor UX',
-    solution: 'Rebuilt architecture with async processing, caching layer, and connection pooling',
-    link: '#',
-    github: '#',
-  },
-  {
-    title: 'E-Commerce Platform Migration',
-    description: 'Migrated monolithic application to microservices, increasing scalability and deployment frequency',
-    image: '/projects/ecommerce-platform.png',
-    role: 'Senior Full-Stack Engineer',
-    technologies: ['Node.js', 'React', 'Docker', 'Kubernetes', 'MongoDB'],
-    achievements: [
-      'Deployment time reduced from 4 hours to 15 minutes',
-      'Service independence enabled 50+ deployments/day',
-      'Cost reduced by 40% through optimization',
-    ],
-    problem: 'Monolithic architecture prevented independent scaling and caused frequent full deployments',
-    solution: 'Decomposed into 12 independently deployable services with event-driven communication',
-    link: '#',
-    github: '#',
-  },
-  {
-    title: 'AI-Powered Analytics Engine',
-    description: 'Machine learning pipeline for predictive analytics with real-time model serving',
-    image: '/projects/ai-analytics.png',
-    role: 'Full-Stack Engineer',
-    technologies: ['Python', 'FastAPI', 'React', 'AWS SageMaker', 'PostgreSQL'],
-    achievements: [
-      '85% prediction accuracy for business metrics',
-      'Model serving at <100ms P99 latency',
-      'Automated retraining pipeline saving 20 hours/week',
-    ],
-    problem: 'Manual analytics and reporting couldn\'t keep up with business demands',
-    solution: 'Built end-to-end ML pipeline with automated training, serving, and monitoring',
-    link: '#',
-    github: '#',
-  },
-]
+import { FEATURED_PROJECTS, ProjectCaseStudy } from '@/lib/constants'
+import { CaseStudyModal } from '@/components/ui/CaseStudyModal'
+import { ArrowUpRight } from 'lucide-react'
 
 export function Projects() {
+  const [selectedProject, setSelectedProject] = useState<ProjectCaseStudy | null>(null)
+
   return (
-    <section className="py-20 md:py-32 px-4 md:px-6 max-w-6xl mx-auto">
-      <motion.div
-        variants={STAGGER_CONTAINER}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-      >
-        <motion.div variants={STAGGER_ITEM} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4">
-            Featured <span className="text-gradient">Projects</span>
-          </h2>
-          <p className="text-lg text-muted max-w-2xl mx-auto">
-            Case studies demonstrating technical expertise and business impact
-          </p>
-        </motion.div>
+    <section id="projects" className="py-20 border-t border-neutral-200 dark:border-neutral-800/60">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        {/* Section Header */}
+        <div className="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <div className="text-xs font-mono font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-400 mb-2">
+              Production Architecture
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-neutral-900 dark:text-white tracking-tight">
+              Featured Case Studies
+            </h2>
+            <p className="text-neutral-600 dark:text-neutral-400 text-sm sm:text-base mt-2 max-w-xl">
+              Deep dives into payment processing, database query optimization, and enterprise software systems.
+            </p>
+          </div>
+        </div>
 
         {/* Projects Grid */}
-        <motion.div
-          variants={STAGGER_CONTAINER}
-          className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8"
-        >
-          {PROJECTS.map((project, idx) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {FEATURED_PROJECTS.map((project, index) => (
             <motion.div
-              key={idx}
-              variants={STAGGER_ITEM}
-              whileHover={{ y: -4 }}
-              className="group cursor-pointer"
+              key={project.id}
+              className="group surface-card p-6 flex flex-col justify-between cursor-pointer bg-white dark:bg-[#121215] border border-neutral-200 dark:border-neutral-800/90 shadow-sm"
+              onClick={() => setSelectedProject(project)}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <div className="glass rounded-lg overflow-hidden border border-primary/20 hover:border-primary/40 transition-all">
-                {/* Project Header */}
-                <div className="p-6 md:p-8">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                    <div>
-                      <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-                      <p className="text-muted">{project.description}</p>
-                    </div>
-                    <div className="flex gap-2 flex-shrink-0">
-                      <Button variant="secondary" size="sm">
-                        View
-                      </Button>
-                      <Button variant="outline" size="sm">
-                        GitHub
-                      </Button>
-                    </div>
-                  </div>
-
-                  {/* Problem & Solution */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 py-6 border-y border-primary/10">
-                    <div>
-                      <h4 className="text-sm font-semibold text-primary mb-2">Problem</h4>
-                      <p className="text-sm text-muted">{project.problem}</p>
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-semibold text-secondary mb-2">Solution</h4>
-                      <p className="text-sm text-muted">{project.solution}</p>
-                    </div>
-                  </div>
-
-                  {/* Achievements */}
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold mb-3">Key Achievements</h4>
-                    <ul className="space-y-2">
-                      {project.achievements.map((achievement, i) => (
-                        <li key={i} className="flex gap-2 text-sm text-muted">
-                          <span className="text-primary font-bold">✓</span>
-                          {achievement}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Technologies */}
-                  <div>
-                    <h4 className="text-sm font-semibold mb-3">Technologies Used</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech) => (
-                        <Badge key={tech} variant="secondary">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
+              <div>
+                {/* Header Badge */}
+                <div className="flex items-center justify-between gap-2 mb-4">
+                  <span className="px-2.5 py-1 text-xs font-mono rounded-md bg-purple-500/10 text-purple-700 dark:text-purple-400 border border-purple-500/20">
+                    {project.company}
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </div>
+
+                <h3 className="text-lg font-bold text-neutral-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-4 line-clamp-2 leading-relaxed">
+                  {project.summary}
+                </p>
+
+                {/* Key Metrics Pill */}
+                <div className="grid grid-cols-2 gap-2 mb-6 p-3 rounded-lg bg-neutral-100 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-800">
+                  {project.impactMetrics.slice(0, 2).map((m, i) => (
+                    <div key={i}>
+                      <div className="text-xs text-neutral-500 dark:text-neutral-400">{m.label}</div>
+                      <div className="text-sm font-bold font-mono text-purple-600 dark:text-purple-400">{m.value}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div>
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  {project.tags.slice(0, 4).map((tag) => (
+                    <span key={tag} className="px-2 py-0.5 text-[10px] font-mono rounded bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-800">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setSelectedProject(project)
+                  }}
+                  className="w-full py-2.5 px-4 text-xs font-semibold rounded-lg bg-neutral-100 dark:bg-neutral-900 hover:bg-neutral-200 dark:hover:bg-neutral-800 text-neutral-900 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-800 hover:border-purple-500/40 transition-all flex items-center justify-center gap-1.5"
+                >
+                  <span>Read Engineering Case Study</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
+                </button>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
+      </div>
 
-        {/* Call to Action */}
-        <motion.div variants={STAGGER_ITEM} className="mt-16 text-center">
-          <p className="text-muted mb-4">Want to see more projects?</p>
-          <Button size="lg">View Full Portfolio</Button>
-        </motion.div>
-      </motion.div>
+      <CaseStudyModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </section>
   )
 }
