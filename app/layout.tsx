@@ -14,9 +14,10 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Mayowa | Software Engineer (ASP.NET Core, C#, React, PostgreSQL, AWS)',
-  description: 'Software Engineer with experience in fintech payment systems (GlobalPay NG), microservices, ASP.NET Core, C#, React, TypeScript, and AWS cloud infrastructure.',
+  title: 'Mayowa Binuyo | Software Engineer (ASP.NET Core, C#, React, PostgreSQL, AWS)',
+  description: 'Software Engineer with experience architecting fintech payment systems (GlobalPay NG), microservices, ASP.NET Core, C#, React, TypeScript, and AWS cloud infrastructure.',
   keywords: [
+    'Mayowa Binuyo',
     'Software Engineer',
     'Full Stack Engineer',
     'Backend Engineer',
@@ -30,13 +31,13 @@ export const metadata: Metadata = {
     'GlobalPay NG',
     'Fintech Engineer',
   ],
-  authors: [{ name: 'Mayowa' }],
+  authors: [{ name: 'Mayowa Binuyo' }],
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://impeccablemayor.com',
-    siteName: 'Mayowa Portfolio',
-    title: 'Mayowa | Software Engineer (Fintech & Full-Stack)',
+    url: 'https://github.com/Impeccablemayor',
+    siteName: 'Mayowa Binuyo Portfolio',
+    title: 'Mayowa Binuyo | Software Engineer (Fintech & Full-Stack)',
     description: 'Specializing in ASP.NET Core, C#, React, PostgreSQL, AWS, and resilient API microservices.',
   },
 }

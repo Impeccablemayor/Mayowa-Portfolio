@@ -152,7 +152,7 @@ export function useLocalStorage<T>(
         setStoredValue(JSON.parse(item))
       }
     } catch (error) {
-      console.error('[v0] LocalStorage error:', error)
+      console.error('LocalStorage error:', error)
     }
   }, [key])
 
@@ -163,7 +163,7 @@ export function useLocalStorage<T>(
         window.localStorage.setItem(key, JSON.stringify(value))
       }
     } catch (error) {
-      console.error('[v0] LocalStorage error:', error)
+      console.error('LocalStorage error:', error)
     }
   }
 

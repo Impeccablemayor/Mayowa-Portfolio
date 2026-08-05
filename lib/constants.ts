@@ -4,18 +4,18 @@
  */
 
 export const PERSONAL_INFO = {
-  name: 'Mayowa',
-  shortName: 'Mayor',
+  name: 'Mayowa Binuyo',
+  shortName: 'Mayowa',
   title: 'Software Engineer',
   roleSubtitle: 'Specializing in ASP.NET Core, C#, React, PostgreSQL, AWS & Distributed Systems',
   bio: 'Software Engineer with extensive experience architecting high-throughput fintech infrastructure, payment pipelines, and scalable enterprise platforms at GlobalPay NG. Focused on API performance, data integrity, security, and resilient cloud software.',
-  email: 'mayor.dev@example.com',
+  email: 'binuyomayor16@gmail.com',
   location: 'Lagos, Nigeria (Available for Remote Global Roles)',
   availability: 'Open to Senior / Full-Stack / Backend Engineering Roles',
   resumeUrl: '/resume.pdf',
-  github: 'https://github.com/impeccablemayor',
-  linkedin: 'https://linkedin.com/in/mayowa-engineer',
-  calendly: 'https://calendly.com/mayor-dev',
+  github: 'https://github.com/Impeccablemayor',
+  linkedin: 'https://linkedin.com/in/mayowa-binuyo-63815521b',
+  calendly: 'https://linkedin.com/in/mayowa-binuyo-63815521b',
 }
 
 export const STATS = [
@@ -131,7 +131,7 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
       { label: 'Uptime SLA', value: '99.99%' },
     ],
     tags: ['ASP.NET Core', 'C#', 'PostgreSQL', 'Redis', 'AWS ECS', 'Docker', 'Fintech'],
-    githubUrl: 'https://github.com/impeccablemayor',
+    githubUrl: 'https://github.com/Impeccablemayor',
     liveUrl: 'https://globalpay.ng',
     keyFeatures: [
       'Idempotent payment webhook processing using Redis locks',
@@ -155,7 +155,7 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
       { label: 'Data Processing Speed', value: '4x' },
     ],
     tags: ['React', 'TypeScript', 'ASP.NET Core', 'PostgreSQL', 'Tailwind CSS', 'Docker'],
-    githubUrl: 'https://github.com/impeccablemayor',
+    githubUrl: 'https://github.com/Impeccablemayor',
     keyFeatures: [
       'Granular Role-Based Access Control (RBAC) with customizable permissions',
       'Real-time data visualization dashboards powered by SQL aggregation views',
@@ -178,8 +178,8 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
       { label: 'Active Catalog Items', value: '50K+' },
     ],
     tags: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Redis', 'AWS S3', 'Docker'],
-    githubUrl: 'https://github.com/impeccablemayor',
-    liveUrl: 'https://github.com/impeccablemayor',
+    githubUrl: 'https://github.com/Impeccablemayor',
+    liveUrl: 'https://github.com/Impeccablemayor',
     keyFeatures: [
       'PostgreSQL full-text search with fast GIN index lookups',
       'S3 presigned URLs for secure asset uploads and distribution',

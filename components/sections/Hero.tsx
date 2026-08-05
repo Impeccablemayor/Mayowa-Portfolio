@@ -70,7 +70,7 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* CENTER COLUMN: Hero Portrait Image Placeholder */}
+          {/* CENTER COLUMN: User Photo Portrait */}
           <motion.div
             className="lg:col-span-4 flex justify-center relative my-4 lg:my-0"
             initial={{ opacity: 0, scale: 0.95 }}
@@ -81,18 +81,17 @@ export function Hero() {
             <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 to-transparent rounded-3xl blur-2xl pointer-events-none" />
 
             {/* Profile Image Wrapper */}
-            <div className="relative w-full max-w-[340px] sm:max-w-[380px] aspect-[4/5] rounded-3xl overflow-hidden border-2 border-neutral-200/80 dark:border-neutral-800 shadow-2xl bg-neutral-100 dark:bg-neutral-900">
-              {/* PHOTO PLACEHOLDER: Replace /profile-placeholder.png with your custom photo */}
+            <div className="relative w-full max-w-[340px] sm:max-w-[380px] aspect-[4/5] rounded-3xl overflow-hidden border-2 border-neutral-200/80 dark:border-neutral-800 shadow-2xl bg-[#c5b59e] dark:bg-neutral-900">
               <Image
-                src="/profile-placeholder.png"
+                src="/profile-user.jpg"
                 alt={PERSONAL_INFO.name}
                 fill
                 priority
                 className="object-cover object-top hover:scale-105 transition-transform duration-500"
               />
               
-              {/* Gradient overlay at bottom */}
-              <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/60 via-transparent to-transparent pointer-events-none" />
+              {/* Soft gradient overlay at bottom for seamless depth */}
+              <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/40 via-transparent to-transparent pointer-events-none" />
             </div>
           </motion.div>
 
