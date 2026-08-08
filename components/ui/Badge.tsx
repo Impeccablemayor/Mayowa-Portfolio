@@ -1,9 +1,9 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion, HTMLMotionProps } from 'framer-motion'
 
-export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface BadgeProps extends HTMLMotionProps<"div"> {
   variant?: 'primary' | 'secondary' | 'accent' | 'success' | 'warning' | 'error'
   size?: 'sm' | 'md' | 'lg'
   icon?: React.ReactNode
@@ -45,7 +45,7 @@ export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
         {...props}
       >
         {icon && <span className="flex-shrink-0">{icon}</span>}
-        <span>{children}</span>
+        <span>{children as React.ReactNode}</span>
       </motion.div>
     )
   }

@@ -33,16 +33,17 @@ export function Navigation() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          isScrolled ? 'glass-nav py-3' : 'bg-transparent py-5'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled ? 'glass-nav py-3' : 'bg-transparent py-5'
+          }`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white font-mono font-bold text-sm shadow-md group-hover:scale-105 transition-transform">
-              M
-            </div>
+            <img
+              src="\profile-placeholder.png.jpg"
+              alt="Mayowa Binuyo"
+              className="w-9 h-9 rounded-xl object-cover ring-1 ring-white/10 shadow-md group-hover:scale-105 transition-all duration-300"
+            />
             <span className="font-semibold text-sm sm:text-base tracking-tight text-neutral-900 dark:text-neutral-100 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
               {PERSONAL_INFO.name} <span className="text-xs text-neutral-500 dark:text-neutral-400 font-normal">/ Software Engineer</span>
             </span>

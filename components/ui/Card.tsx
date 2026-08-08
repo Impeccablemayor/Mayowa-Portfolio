@@ -1,10 +1,10 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion, HTMLMotionProps } from 'framer-motion'
 import { HOVER_LIFT, SCALE_IN } from '@/lib/animations'
 
-export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface CardProps extends HTMLMotionProps<"div"> {
   variant?: 'default' | 'glass' | 'surface' | 'elevated'
   hover?: boolean
   animated?: boolean
@@ -37,11 +37,11 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
           initial: { opacity: 0, y: 20 },
           animate: { opacity: 1, y: 0 },
           whileHover: HOVER_LIFT.whileHover,
-          transition: { type: 'spring', stiffness: 400, damping: 10 },
+          transition: { type: 'spring' as const, stiffness: 400, damping: 10 },
         }
       : {
           whileHover: hover ? HOVER_LIFT.whileHover : {},
-          transition: { type: 'spring', stiffness: 400, damping: 10 },
+          transition: { type: 'spring' as const, stiffness: 400, damping: 10 },
         }
 
     return (

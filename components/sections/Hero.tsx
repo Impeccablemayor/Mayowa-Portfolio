@@ -18,7 +18,7 @@ export function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center">
-          
+
           {/* LEFT COLUMN: Name, Accent Bar, Socials */}
           <motion.div
             className="lg:col-span-4 flex flex-col items-start"
@@ -89,7 +89,7 @@ export function Hero() {
                 priority
                 className="object-cover object-top hover:scale-105 transition-transform duration-500"
               />
-              
+
               {/* Soft gradient overlay at bottom for seamless depth */}
               <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/40 via-transparent to-transparent pointer-events-none" />
             </div>
