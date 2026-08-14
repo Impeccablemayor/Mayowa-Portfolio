@@ -224,7 +224,7 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
       { label: 'Backend', value: '.NET' },
       { label: 'Frontend', value: 'React' },
     ],
-    githubUrl: '',
+    githubUrl: 'https://github.com/Impeccablemayor/ibop.Api.git',
     liveUrl: '',
   },
 
@@ -290,7 +290,7 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
       { label: 'Project Type', value: 'Final Year Project' },
       { label: 'Focus', value: 'Digital Marketplace' },
     ],
-    githubUrl: '',
+    githubUrl: 'https://github.com/Impeccablemayor/BuildWM.git',
     liveUrl: '',
   },
 ]
