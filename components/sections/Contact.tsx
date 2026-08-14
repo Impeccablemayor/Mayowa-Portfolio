@@ -9,10 +9,35 @@ import { Copy, Check, Calendar, ArrowUpRight } from 'lucide-react'
 export function Contact() {
   const [copied, setCopied] = useState(false)
 
-  const copyEmail = () => {
-    navigator.clipboard.writeText(PERSONAL_INFO.email)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2500)
+  const copyEmail = async () => {
+    try {
+      if (typeof navigator !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(PERSONAL_INFO.email)
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2500)
+        return
+      }
+    } catch (err) {
+      console.warn('Primary clipboard write failed, using fallback:', err)
+    }
+
+    try {
+      const textArea = document.createElement('textarea')
+      textArea.value = PERSONAL_INFO.email
+      textArea.style.position = 'fixed'
+      textArea.style.opacity = '0'
+      document.body.appendChild(textArea)
+      textArea.focus()
+      textArea.select()
+      const successful = document.execCommand('copy')
+      document.body.removeChild(textArea)
+      if (successful) {
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2500)
+      }
+    } catch (fallbackErr) {
+      console.error('Clipboard copy failed:', fallbackErr)
+    }
   }
 
   return (
@@ -61,16 +86,18 @@ export function Contact() {
             <span>{copied ? 'Email Address Copied!' : PERSONAL_INFO.email}</span>
           </button>
 
-          {/* Schedule Meeting */}
-          <a
-            href={PERSONAL_INFO.calendly}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 text-sm font-medium transition-colors shadow-xs"
-          >
-            <Calendar className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-            <span>Book A Technical Chat</span>
-          </a>
+          {/* Schedule Meeting (renders only if calendly URL is configured) */}
+          {PERSONAL_INFO.calendly ? (
+            <a
+              href={PERSONAL_INFO.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 text-sm font-medium transition-colors shadow-xs"
+            >
+              <Calendar className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+              <span>Book A Technical Chat</span>
+            </a>
+          ) : null}
         </motion.div>
 
         {/* Social Links */}

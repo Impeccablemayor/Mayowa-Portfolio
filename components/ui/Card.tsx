@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion, HTMLMotionProps } from 'framer-motion'
-import { HOVER_LIFT, SCALE_IN } from '@/lib/animations'
+import { HOVER_LIFT } from '@/lib/animations'
 
 export interface CardProps extends HTMLMotionProps<"div"> {
   variant?: 'default' | 'glass' | 'surface' | 'elevated'

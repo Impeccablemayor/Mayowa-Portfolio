@@ -29,7 +29,12 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="resume-modal-title"
+      >
         <motion.div
           className="fixed inset-0 bg-black/70 backdrop-blur-md"
           initial={{ opacity: 0 }}
@@ -47,6 +52,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           <button
             onClick={onClose}
             className="absolute top-5 right-5 p-2 text-neutral-400 hover:text-white rounded-full bg-neutral-800/60 hover:bg-neutral-800 transition-colors"
+            aria-label="Close resume modal"
           >
             <X className="w-5 h-5" />
           </button>
@@ -56,8 +62,10 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               <FileText className="w-6 h-6" />
             </div>
             <div>
-              <h2 className="text-xl font-bold text-white">{PERSONAL_INFO.name}&apos;s Executive Resume</h2>
-              <p className="text-xs text-neutral-400">Software Engineer (ASP.NET Core, C#, React, PostgreSQL, AWS)</p>
+              <h2 id="resume-modal-title" className="text-xl font-bold text-white">
+                {PERSONAL_INFO.name}&apos;s Engineering Resume
+              </h2>
+              <p className="text-xs text-neutral-400">Software Engineer (.NET, Java, React, PostgreSQL, AWS)</p>
             </div>
           </div>
 
@@ -66,15 +74,15 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             <ul className="space-y-2.5 text-sm text-neutral-300">
               <li className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-purple-400" />
-                <span>Production fintech experience at GlobalPay NG</span>
+                <span>Software Engineering at GlobalPay NG</span>
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-purple-400" />
-                <span>ASP.NET Core microservices & high-throughput webhooks</span>
+                <span>ASP.NET Core & Java Spring Boot APIs</span>
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-purple-400" />
-                <span>PostgreSQL indexing, Redis caching, AWS ECS deployment</span>
+                <span>PostgreSQL database design & Docker containerization</span>
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-purple-400" />
@@ -84,13 +92,23 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-3">
-            <a
-              href={PERSONAL_INFO.resumeUrl}
-              download
-              className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-medium text-sm transition-colors"
-            >
-              <Download className="w-4 h-4" /> Download Resume PDF
-            </a>
+            {PERSONAL_INFO.resumeUrl ? (
+              <a
+                href={PERSONAL_INFO.resumeUrl}
+                download
+                className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-medium text-sm transition-colors"
+              >
+                <Download className="w-4 h-4" /> Download Resume PDF
+              </a>
+            ) : (
+              <button
+                disabled
+                className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-neutral-800/80 text-neutral-400 font-medium text-sm cursor-not-allowed border border-neutral-700/50"
+                title="Provide a valid resume.pdf file in public/ to enable direct download"
+              >
+                <Download className="w-4 h-4 text-neutral-500" /> Resume PDF Available Upon Request
+              </button>
+            )}
             <a
               href={PERSONAL_INFO.linkedin}
               target="_blank"

@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ProjectCaseStudy } from '@/lib/constants'
 import { GithubIcon } from '@/components/ui/Icons'
-import { X, ExternalLink, CheckCircle2, Server, Database, Shield, Zap } from 'lucide-react'
+import { X, ExternalLink, CheckCircle2, Server, Zap } from 'lucide-react'
 
 interface CaseStudyModalProps {
   project: ProjectCaseStudy | null
@@ -30,7 +30,12 @@ export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10">
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="case-study-title"
+      >
         {/* Backdrop */}
         <motion.div
           className="fixed inset-0 bg-black/70 backdrop-blur-md"
@@ -65,7 +70,7 @@ export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
               </span>
               <span className="text-xs text-neutral-400">Engineering Case Study</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">{project.title}</h2>
+            <h2 id="case-study-title" className="text-2xl sm:text-3xl font-bold text-white mb-2">{project.title}</h2>
             <p className="text-neutral-400 text-sm sm:text-base">{project.subtitle}</p>
           </div>
 

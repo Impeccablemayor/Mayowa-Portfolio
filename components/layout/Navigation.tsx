@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { NAV_ITEMS, PERSONAL_INFO } from '@/lib/constants'
 import { ResumeModal } from '@/components/ui/ResumeModal'
 import { Sun, Moon, FileText, Menu, X, ArrowUpRight } from 'lucide-react'
@@ -9,22 +9,35 @@ import { Sun, Moon, FileText, Menu, X, ArrowUpRight } from 'lucide-react'
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isDarkMode, setIsDarkMode] = useState(true)
+  const [mounted, setMounted] = useState(false)
   const [isResumeOpen, setIsResumeOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
+    const saved = localStorage.getItem('isDark')
+    if (saved !== null) {
+      setIsDarkMode(saved === 'true')
+    } else {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      setIsDarkMode(prefersDark)
+    }
+
     const handleScroll = () => setIsScrolled(window.scrollY > 40)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   useEffect(() => {
+    if (!mounted) return
     if (isDarkMode) {
       document.documentElement.classList.add('dark')
+      localStorage.setItem('isDark', 'true')
     } else {
       document.documentElement.classList.remove('dark')
+      localStorage.setItem('isDark', 'false')
     }
-  }, [isDarkMode])
+  }, [isDarkMode, mounted])
 
   const toggleTheme = () => {
     setIsDarkMode((prev) => !prev)
@@ -39,9 +52,11 @@ export function Navigation() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-2.5 group">
-            <img
-              src="\profile-placeholder.png.jpg"
+            <Image
+              src="/profile-user.jpg"
               alt="Mayowa Binuyo"
+              width={36}
+              height={36}
               className="w-9 h-9 rounded-xl object-cover ring-1 ring-white/10 shadow-md group-hover:scale-105 transition-all duration-300"
             />
             <span className="font-semibold text-sm sm:text-base tracking-tight text-neutral-900 dark:text-neutral-100 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">

@@ -31,11 +31,11 @@ export const SOCIAL_LINKS = {
 
 // Navigation
 export const NAV_ITEMS = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Work', href: '#work' },
+  { label: 'Home', href: '#hero' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Architecture', href: '#architecture' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Blog', href: '#blog' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -154,7 +154,7 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
       { label: 'Backend', value: 'Spring Boot' },
       { label: 'Database', value: 'PostgreSQL' },
     ],
-    githubUrl: '',
+    githubUrl: 'https://github.com/AgroBaba/Agro-baba-backend.git',
     liveUrl: '',
   },
 
@@ -189,7 +189,7 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
       { label: 'Database', value: 'PostgreSQL' },
       { label: 'Media', value: 'Cloudinary' },
     ],
-    githubUrl: '',
+    githubUrl: 'https://github.com/Impeccablemayor/ResourceSharingBackend.git',
     liveUrl: '',
   },
 
@@ -258,7 +258,7 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
       { label: 'Backend', value: 'ASP.NET Core' },
       { label: 'UI', value: 'Tailwind CSS' },
     ],
-    githubUrl: '',
+    githubUrl: 'https://github.com/Impeccablemayor/BuildWM.git',
     liveUrl: '',
   },
 

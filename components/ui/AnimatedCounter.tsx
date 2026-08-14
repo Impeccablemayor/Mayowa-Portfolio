@@ -1,8 +1,7 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import gsap from 'gsap'
 
 interface AnimatedCounterProps {
   target: number
@@ -20,24 +19,27 @@ export function AnimatedCounter({
   prefix = '',
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const countRef = useRef({ value: 0 })
+  const [count, setCount] = useState(0)
   const isInView = useInView(ref)
 
   useEffect(() => {
-    if (!isInView || !ref.current) return
+    if (!isInView) return
 
-    const displayValue = ref.current.querySelector('[data-value]')
-    if (!displayValue) return
+    let startTimestamp: number | null = null
+    const durationMs = duration * 1000
 
-    gsap.to(countRef.current, {
-      value: target,
-      duration,
-      ease: 'power2.out',
-      onUpdate: () => {
-        displayValue.textContent = `${prefix}${Math.floor(countRef.current.value)}${suffix}`
-      },
-    })
-  }, [isInView, target, duration, prefix, suffix])
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp
+      const progress = Math.min((timestamp - startTimestamp) / durationMs, 1)
+      setCount(Math.floor(progress * target))
+
+      if (progress < 1) {
+        window.requestAnimationFrame(step)
+      }
+    }
+
+    window.requestAnimationFrame(step)
+  }, [isInView, target, duration])
 
   return (
     <motion.div
@@ -49,7 +51,7 @@ export function AnimatedCounter({
       transition={{ duration: 0.5 }}
     >
       <div className="text-4xl md:text-5xl font-bold text-gradient">
-        <span data-value>0</span>
+        <span>{prefix}{count}{suffix}</span>
       </div>
       <p className="text-sm text-muted font-medium">{label}</p>
     </motion.div>
